@@ -23,16 +23,16 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"config": "^1.20.1",
-		"express": "^4.13.4",
-		"spdy": "^3.3.3",
-		"hsts": "^1",
-		"corser": "^2",
-		"compression": "^1.6.2",
-		"nocache": "^1",
-		"moment-timezone": "^0.5.5",
 		"cli-native": "^1.0.0",
-		"meinfernbus": "juliuste/meinfernbus"
+		"compression": "^1.6.2",
+		"config": "^1.20.1",
+		"corser": "^2",
+		"express": "^4.13.4",
+		"hsts": "^2.0.0",
+		"meinfernbus": "github:juliuste/meinfernbus",
+		"moment-timezone": "^0.5.5",
+		"nocache": "^2.0.0",
+		"spdy": "^3.3.3"
 	},
 	"peerDependencies": {
 		"forever": "^0.15"
