@@ -1,0 +1,47 @@
+{
+	"name": "meinfernbus-rest",
+	"description": "Meinfernbus/FlixBus REST API",
+	"version": "0.1.0",
+	"keywords": [
+		"bus",
+		"coach",
+		"flixbus",
+		"meinfernbus",
+		"api",
+		"http",
+		"rest"
+	],
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"author": "Julius Tens <mail@juliuste.de>",
+	"homepage": "https://github.com/juliuste/meinfernbus-rest",
+	"repository": "juliuste/meinfernbus-rest",
+	"bugs": "https://github.com/juliuste/meinfernbus-rest/issues",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+		"config": "^1.20.1",
+		"express": "^4.13.4",
+		"spdy": "^3.3.3",
+		"hsts": "^1",
+		"corser": "^2",
+		"compression": "^1.6.2",
+		"nocache": "^1",
+		"moment-timezone": "^0.5.5",
+		"cli-native": "^1.0.0",
+		"meinfernbus": "juliuste/meinfernbus"
+	},
+	"peerDependencies": {
+		"forever": "^0.15"
+	},
+	"scripts": {
+		"start": "forever start --uid meinfernbus-rest -a index.js",
+		"stop": "forever stop meinfernbus-rest",
+		"ssh": "ssh meinfernbus",
+		"deploy": "./deploy"
+	},
+	"license": "MIT"
+}
