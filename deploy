@@ -3,12 +3,11 @@
 rsync -rav --delete \
 	--exclude '.*' \
 	--exclude node_modules \
-	. 'meinfernbus:~/meinfernbus-rest/'
+	. 'enceladus:~/meinfernbus-rest/'
 
-ssh meinfernbus "\
+ssh enceladus "\
 cd ~/meinfernbus-rest
 npm i
 npm update
-export NODE_ENV=production
 forever stop meinfernbus-rest
 forever start -a --uid meinfernbus-rest index.js"

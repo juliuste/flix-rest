@@ -3,8 +3,7 @@
 const config       = require('config')
 const fs           = require('fs')
 const express      = require('express')
-const spdy         = require('spdy')
-const hsts         = require('hsts')
+const http         = require('http')
 const corser       = require('corser')
 const compression  = require('compression')
 const nocache      = require('nocache')
@@ -12,18 +11,9 @@ const path         = require('path')
 
 const trips       = require('./trips')
 
-const ssl = {
-	  key:  fs.readFileSync(config.key)
-	, cert: fs.readFileSync(config.cert)
-	, ca:   fs.readFileSync(config.ca)
-}
-
-
-
 const api = express()
-const server = spdy.createServer(ssl, api)
+const server = http.createServer(api)
 
-api.use(hsts({maxAge: 24 * 60 * 60 * 1000}))
 const allowed = corser.simpleRequestHeaders.concat(['User-Agent'])
 api.use(corser.create({requestHeaders: allowed})) // CORS
 api.use(compression())

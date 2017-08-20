@@ -1,7 +1,7 @@
 {
 	"name": "meinfernbus-rest",
 	"description": "Meinfernbus/FlixBus REST API",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"keywords": [
 		"bus",
 		"coach",
@@ -28,11 +28,10 @@
 		"config": "^1.20.1",
 		"corser": "^2",
 		"express": "^4.13.4",
-		"hsts": "^2.0.0",
-		"meinfernbus": "github:juliuste/meinfernbus",
+		"http": "0.0.0",
+		"meinfernbus": "^1.0.0",
 		"moment-timezone": "^0.5.5",
-		"nocache": "^2.0.0",
-		"spdy": "^3.3.3"
+		"nocache": "^2.0.0"
 	},
 	"peerDependencies": {
 		"forever": "^0.15"
