@@ -10,7 +10,7 @@ const nocache      = require('nocache')
 const path         = require('path')
 
 // const trips       = require('./trips')
-const locations = require('./locations')
+const regions = require('./regions')
 
 const api = express()
 const server = http.createServer(api)
@@ -22,7 +22,7 @@ const noCache = nocache()
 
 
 // api.get('/trips', trips)
-api.get('/locations', locations)
+api.get('/regions', regions)
 
 api.use((err, req, res, next) => {
 	if (res.headersSent) return next()
