@@ -29,7 +29,7 @@
 		"corser": "^2",
 		"express": "^4.13.4",
 		"http": "0.0.0",
-		"meinfernbus": "^1.0.0",
+		"meinfernbus": "^3.0.0",
 		"moment-timezone": "^0.5.5",
 		"nocache": "^2.0.0"
 	},

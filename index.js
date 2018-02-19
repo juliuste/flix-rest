@@ -9,7 +9,8 @@ const compression  = require('compression')
 const nocache      = require('nocache')
 const path         = require('path')
 
-const trips       = require('./trips')
+// const trips       = require('./trips')
+const locations = require('./locations')
 
 const api = express()
 const server = http.createServer(api)
@@ -20,7 +21,8 @@ api.use(compression())
 const noCache = nocache()
 
 
-api.get('/trips', trips)
+// api.get('/trips', trips)
+api.get('/locations', locations)
 
 api.use((err, req, res, next) => {
 	if (res.headersSent) return next()
