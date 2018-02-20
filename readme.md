@@ -2,45 +2,49 @@
 
 A public HTTP REST API, exposing a clean interface to query the Meinfernbus/FlixBus API.
 
-The public endpoint is available at `https://meinfernbus.juliuste.de`.
+The public endpoint is available at `https://1.mfb.juliustens.eu`.
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/juliuste/meinfernbus-rest.svg)](https://greenkeeper.io/)
 [![dependency status](https://img.shields.io/david/juliuste/meinfernbus-rest.svg)](https://david-dm.org/juliuste/meinfernbus-rest)
 [![dev dependency status](https://img.shields.io/david/dev/juliuste/meinfernbus-rest.svg)](https://david-dm.org/juliuste/meinfernbus-rest#info=devDependencies)
 [![license](https://img.shields.io/github/license/juliuste/meinfernbus-rest.svg?style=flat)](LICENSE)
 [![chat on gitter](https://badges.gitter.im/juliuste.svg)](https://gitter.im/juliuste)
 
+## `GET /regions`
 
-## Installation
+Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search-meinfernbus-locations) (regions only).
 
-```bash
-git clone https://github.com/juliuste/meinfernbus-rest.git
-cd meinfernbus-rest
-npm install --production
-```
+- `query`: **Required.** Search query
 
-## Usage
+## `GET /regions/all`
 
-Adapt `config/default.json` to your needs and run `npm start`.
+List of all operated regions, output from [`require('meinfernbus').regions`](https://github.com/juliuste/meinfernbus/blob/master/docs/regions.md).
 
+## `GET /stations`
 
-## `GET /locations`
+Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search-meinfernbus-locations) (stations only).
 
-**Not implemented yet.**
+- `query`: **Required.** Search query
 
-## `GET /trips`
+## `GET /stations/all`
 
-Output from [`require('meinfernbus').trips`](https://github.com/juliuste/meinfernbus/blob/master/docs/trips.md)
+List of all operated stations, output from [`require('meinfernbus').stations`](https://github.com/juliuste/meinfernbus/blob/master/docs/stations.md).
 
-- `from`: **Required.** City id.
-- `to`: **Required.** City id.
+## `GET /journeys`
+
+Output from [`require('meinfernbus').journeys`](https://github.com/juliuste/meinfernbus/blob/master/docs/journeys.md)
+
+- `origin`: **Required.** Region/station id.
+- `destination`: **Required.** Region/station id.
 - `date`: When? UNIX timestamp or [`moment`-parsable string](http://momentjs.com/docs/#/parsing/). Default: now.
-
-**Other options not implemented yet.**
+- `adults`: Number of adults. Default: 1
+- `children`: Number of children. Default: 0
+- `bikes`: Number of bikes. Default: 0
 
 `Content-Type`: `application/json`
 
 ```shell
-curl 'https://meinfernbus.juliuste.de/?from=88&to=1394&date=2017-07-13T10:30:00'
+curl 'https://1.mfb.juliustens.eu/?origin=88&destination=1394&date=2018-04-13T10:30:00'
 ```
 
 ## Similar Projects

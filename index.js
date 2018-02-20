@@ -1,16 +1,17 @@
 'use strict'
 
-const config       = require('config')
-const fs           = require('fs')
-const express      = require('express')
-const http         = require('http')
-const corser       = require('corser')
-const compression  = require('compression')
-const nocache      = require('nocache')
-const path         = require('path')
+const config = require('config')
+const fs = require('fs')
+const express = require('express')
+const http = require('http')
+const corser = require('corser')
+const compression = require('compression')
+const nocache = require('nocache')
+const path = require('path')
 
-// const trips       = require('./trips')
+const journeys = require('./journeys')
 const regions = require('./regions')
+const stations = require('./stations')
 
 const api = express()
 const server = http.createServer(api)
@@ -20,9 +21,13 @@ api.use(corser.create({requestHeaders: allowed})) // CORS
 api.use(compression())
 const noCache = nocache()
 
+api.get('/regions', regions.some)
+api.get('/regions/all', regions.all)
 
-// api.get('/trips', trips)
-api.get('/regions', regions)
+api.get('/stations', stations.some)
+api.get('/stations/all', stations.all)
+
+api.get('/journeys', journeys)
 
 api.use((err, req, res, next) => {
 	if (res.headersSent) return next()
