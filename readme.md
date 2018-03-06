@@ -56,8 +56,6 @@ Output from [`require('meinfernbus').journeys`](https://github.com/juliuste/mein
 - `children`: Number of children. Default: 0
 - `bikes`: Number of bikes. Default: 0
 
-`Content-Type`: `application/json`
-
 ```shell
 curl 'https://1.flixbus.transport.rest/journeys/?origin=88&destination=1394&date=2018-04-13T10:30:00'
 ```
