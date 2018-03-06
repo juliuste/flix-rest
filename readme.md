@@ -2,9 +2,8 @@
 
 A public HTTP REST API, exposing a clean interface to query the Meinfernbus/FlixBus API.
 
-The public endpoint is available at `https://1.mfb.juliustens.eu`.
+The public endpoint is available at `https://1.flixbus.transport.rest`.
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/juliuste/meinfernbus-rest.svg)](https://greenkeeper.io/)
 [![dependency status](https://img.shields.io/david/juliuste/meinfernbus-rest.svg)](https://david-dm.org/juliuste/meinfernbus-rest)
 [![dev dependency status](https://img.shields.io/david/dev/juliuste/meinfernbus-rest.svg)](https://david-dm.org/juliuste/meinfernbus-rest#info=devDependencies)
 [![license](https://img.shields.io/github/license/juliuste/meinfernbus-rest.svg?style=flat)](LICENSE)
@@ -16,9 +15,17 @@ Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search
 
 - `query`: **Required.** Search query
 
+```shell
+curl `https://1.flixbus.transport.rest/regions/?query=Frankfurt`
+```
+
 ## `GET /regions/all`
 
 List of all operated regions, output from [`require('meinfernbus').regions`](https://github.com/juliuste/meinfernbus/blob/master/docs/regions.md).
+
+```shell
+curl `https://1.flixbus.transport.rest/regions/all`
+```
 
 ## `GET /stations`
 
@@ -26,9 +33,17 @@ Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search
 
 - `query`: **Required.** Search query
 
+```shell
+curl `https://1.flixbus.transport.rest/stations/?query=Frankfurt`
+```
+
 ## `GET /stations/all`
 
 List of all operated stations, output from [`require('meinfernbus').stations`](https://github.com/juliuste/meinfernbus/blob/master/docs/stations.md).
+
+```shell
+curl `https://1.flixbus.transport.rest/stations/all`
+```
 
 ## `GET /journeys`
 
@@ -44,7 +59,7 @@ Output from [`require('meinfernbus').journeys`](https://github.com/juliuste/mein
 `Content-Type`: `application/json`
 
 ```shell
-curl 'https://1.mfb.juliustens.eu/?origin=88&destination=1394&date=2018-04-13T10:30:00'
+curl 'https://1.flixbus.transport.rest/journeys/?origin=88&destination=1394&date=2018-04-13T10:30:00'
 ```
 
 ## Similar Projects
