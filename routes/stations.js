@@ -3,9 +3,18 @@
 const mfb = require('meinfernbus')
 const search = require('search-meinfernbus-locations')
 
-// todo
-let stations
-mfb.stations().then(s => {stations = s})
+let readStations = mfb.stations()
+let stations = null
+
+readStations
+.then(r => {
+	readStations = null
+	stations = r
+})
+.catch(err => {
+	console.error(err)
+	process.exit(1)
+})
 
 const error = (msg, code) => {
 	const e = new Error(msg)
@@ -21,10 +30,9 @@ const some = (req, res, next) => {
 	next()
 }
 
-const all = (req, res, next) => {
-	if (!stations)
-        return next(error('server error: stations not loaded yet.', 500))
-	res.json(stations)
+const all = async (req, res, next) => {
+	const data = readStations ? await readStations : stations
+	res.json(data)
     next()
 }
 

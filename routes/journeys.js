@@ -3,7 +3,6 @@
 const moment = require('moment-timezone')
 const config = require('config')
 const journeys = require('meinfernbus').journeys
-const parse  = require('cli-native').to
 
 const error = (msg, code) => {
 	const e = new Error(msg)

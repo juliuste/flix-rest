@@ -1,17 +1,15 @@
 'use strict'
 
 const config = require('config')
-const fs = require('fs')
 const express = require('express')
 const http = require('http')
 const corser = require('corser')
 const compression = require('compression')
 const nocache = require('nocache')
-const path = require('path')
 
-const journeys = require('./journeys')
-const regions = require('./regions')
-const stations = require('./stations')
+const journeys = require('./routes/journeys')
+const regions = require('./routes/regions')
+const stations = require('./routes/stations')
 
 const api = express()
 const server = http.createServer(api)

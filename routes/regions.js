@@ -3,9 +3,18 @@
 const mfb = require('meinfernbus')
 const search = require('search-meinfernbus-locations')
 
-// todo
-let regions
-mfb.regions().then(r => {regions = r})
+let readRegions = mfb.regions()
+let regions = null
+
+readRegions
+.then(r => {
+	readRegions = null
+	regions = r
+})
+.catch(err => {
+	console.error(err)
+	process.exit(1)
+})
 
 const error = (msg, code) => {
 	const e = new Error(msg)
@@ -21,10 +30,9 @@ const some = (req, res, next) => {
 	next()
 }
 
-const all = (req, res, next) => {
-	if (!regions)
-        return next(error('server error: regions not loaded yet.', 500))
-	res.json(regions)
+const all = async (req, res, next) => {
+	const data = readRegions ? await readRegions : regions
+	res.json(data)
     next()
 }
 
