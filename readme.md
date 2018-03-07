@@ -1,6 +1,6 @@
 # meinfernbus-rest
 
-A public HTTP REST API, exposing a clean interface to query the Meinfernbus/FlixBus API.
+A public HTTP REST API, exposing a clean interface to query the Meinfernbus/FlixBus API. Complies with the [friendly public transport format](https://github.com/public-transport/friendly-public-transport-format). Inofficial, using endpoints by *Flixbus/MFB*. Ask them for permission before using this endpoint in production.
 
 The public endpoint is available at `https://1.flixbus.transport.rest`.
 
