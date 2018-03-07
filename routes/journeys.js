@@ -27,7 +27,7 @@ module.exports = (req, res, next) => {
 	if ('children' in req.query) opt.children = +req.query.children
 	if ('bikes' in req.query) opt.bikes = +req.query.bikes
 
-	journeys(+req.query.origin, +req.query.destination, new Date(+dt))
+	journeys(req.query.origin, req.query.destination, new Date(+dt))
 	.then(res.json)
 	.catch(next)
 	next()
