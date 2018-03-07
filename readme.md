@@ -16,7 +16,7 @@ Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search
 - `query`: **Required.** Search query
 
 ```shell
-curl `https://1.flixbus.transport.rest/regions/?query=Frankfurt`
+curl 'https://1.flixbus.transport.rest/regions/?query=Frankfurt'
 ```
 
 ## `GET /regions/all`
@@ -24,7 +24,7 @@ curl `https://1.flixbus.transport.rest/regions/?query=Frankfurt`
 List of all operated regions, output from [`require('meinfernbus').regions`](https://github.com/juliuste/meinfernbus/blob/master/docs/regions.md).
 
 ```shell
-curl `https://1.flixbus.transport.rest/regions/all`
+curl 'https://1.flixbus.transport.rest/regions/all'
 ```
 
 ## `GET /stations`
@@ -34,7 +34,7 @@ Output from [`search-meinfernbus-locations`](https://github.com/derhuerst/search
 - `query`: **Required.** Search query
 
 ```shell
-curl `https://1.flixbus.transport.rest/stations/?query=Frankfurt`
+curl 'https://1.flixbus.transport.rest/stations/?query=Frankfurt'
 ```
 
 ## `GET /stations/all`
@@ -42,16 +42,16 @@ curl `https://1.flixbus.transport.rest/stations/?query=Frankfurt`
 List of all operated stations, output from [`require('meinfernbus').stations`](https://github.com/juliuste/meinfernbus/blob/master/docs/stations.md).
 
 ```shell
-curl `https://1.flixbus.transport.rest/stations/all`
+curl 'https://1.flixbus.transport.rest/stations/all'
 ```
 
 ## `GET /journeys`
 
 Output from [`require('meinfernbus').journeys`](https://github.com/juliuste/meinfernbus/blob/master/docs/journeys.md)
 
-- `origin`: **Required.** Region/station id.
-- `destination`: **Required.** Region/station id.
-- `date`: When? UNIX timestamp or [`moment`-parsable string](http://momentjs.com/docs/#/parsing/). Default: now.
+- `origin`: Region id **or** `origin.id`: Region/station id and `origin.type`: Region/station - **Required.**
+- `destination`: Region id **or** `destination.id`: Region/station id and `destination.type`: Region/station - **Required.**
+- `date`: When? UNIX timestamp or `JS`-parsable date string. Default: now.
 - `adults`: Number of adults. Default: 1
 - `children`: Number of children. Default: 0
 - `bikes`: Number of bikes. Default: 0
