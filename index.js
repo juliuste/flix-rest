@@ -7,6 +7,8 @@ const corser = require('corser')
 const compression = require('compression')
 const nocache = require('nocache')
 
+const pkg = require('./package.json')
+const aboutPage = require('./routes/about-page')
 const journeys = require('./routes/journeys')
 const regions = require('./routes/regions')
 const stations = require('./routes/stations')
@@ -18,6 +20,9 @@ const allowed = corser.simpleRequestHeaders.concat(['User-Agent'])
 api.use(corser.create({requestHeaders: allowed})) // CORS
 api.use(compression())
 const noCache = nocache()
+
+const docsLink = 'https://github.com/derhuerst/meinfernbus-rest/blob/master/readme.md'
+api.get('/', aboutPage(pkg.name, pkg.description, docsLink))
 
 api.get('/regions', regions.some)
 api.get('/regions/all', regions.all)
