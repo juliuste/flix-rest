@@ -3,11 +3,11 @@
 rsync -rav --delete \
 	--exclude '.*' \
 	--exclude node_modules \
-	. 'enceladus:~/meinfernbus-rest/'
+	. 'europa:~/flixbus-rest/'
 
-ssh enceladus "\
-cd ~/meinfernbus-rest
+ssh europa "\
+cd ~/flixbus-rest
 npm i
 npm update
-forever stop meinfernbus-rest
-forever start -a --uid meinfernbus-rest index.js"
+forever-service delete flixbus-rest
+forever-service install flixbus-rest --start -s index.js"
