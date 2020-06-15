@@ -24,7 +24,8 @@
 		"meinfernbus": "^3.0.0",
 		"moment-timezone": "^0.5.21",
 		"nocache": "^2.0.0",
-		"search-meinfernbus-locations": "^2.9.0"
+		"search-meinfernbus-locations": "^2.9.0",
+		"stringify-entities": "^1.3.1"
 	},
 	"peerDependencies": {
 		"forever": "^0.15.3"
